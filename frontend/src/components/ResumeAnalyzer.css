@@ -1,0 +1,569 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ── Root & Layout ─────────────────────────────────────────────────────────── */
+.az-root {
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  background: #F4F2ED;
+  padding: 2.5rem 2rem;
+  color: #1a1a1a;
+}
+
+.az-header {
+  max-width: 960px;
+  margin: 0 auto 2rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+}
+
+.az-header h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.az-header p {
+  font-size: 0.875rem;
+  color: #535353;
+  font-weight: 400;
+  margin-top: 0.35rem;
+}
+
+.az-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+@media (max-width: 700px) {
+  .az-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Card ───────────────────────────────────────────────────────────────────── */
+.az-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.az-card-full { grid-column: 1 / -1; }
+
+.az-card-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #53056b;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.az-card-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #f0f0f0;
+}
+
+/* ── Textarea ───────────────────────────────────────────────────────────────── */
+.az-textarea {
+  width: 100%;
+  min-height: 240px;
+  padding: 0.85rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  background: #fafafa;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  line-height: 1.65;
+  box-sizing: border-box;
+}
+
+.az-textarea::placeholder { color: #bbb; }
+.az-textarea:focus { border-color: #53056b; background: #fff; box-shadow: 0 0 0 3px rgba(83,5,107,0.08); }
+
+.az-hint {
+  font-size: 0.75rem;
+  color: #6e6d6d;
+  margin-top: 0.45rem;
+  font-weight: 400;
+}
+
+/* ── Analysis Mode Tabs ─────────────────────────────────────────────────────── */
+.az-mode-tabs {
+  display: flex;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  width: fit-content;
+  background: #f7f7f7;
+  padding: 3px;
+  gap: 2px;
+}
+
+.az-tab {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #888;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1.1rem;
+  transition: all 0.15s;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.az-tab:hover { background: #eee; color: #333; }
+.az-tab.active { background: #fff; color: #1a1a1a; font-weight: 700; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+/* ── Primary Button ─────────────────────────────────────────────────────────── */
+.az-btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.85rem;
+  background: #53056b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.15s;
+  letter-spacing: 0.01em;
+}
+
+.az-btn-primary:hover { background: #3e0550; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(83,5,107,0.3); }
+.az-btn-primary:active { transform: translateY(0); box-shadow: none; }
+.az-btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* ── Input Mode Toggle (Paste / Upload) ─────────────────────────────────────── */
+.az-input-toggle {
+  display: flex;
+  margin-bottom: 0.85rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  width: fit-content;
+  background: #f7f7f7;
+  padding: 3px;
+  gap: 2px;
+}
+
+.az-input-toggle-btn {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #888;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem 0.9rem;
+  transition: all 0.15s;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.az-input-toggle-btn:hover { background: #eee; color: #333; }
+.az-input-toggle-btn.active { background: #fff; color: #1a1a1a; font-weight: 700; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+/* ── Dropzone ───────────────────────────────────────────────────────────────── */
+.az-dropzone {
+  border: 1.5px dashed #ddd;
+  border-radius: 10px;
+  background: #fafafa;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 2rem;
+  text-align: center;
+}
+
+.az-dropzone:hover,
+.az-dropzone.drag-over {
+  border-color: #53056b;
+  background: #eee2f1;
+}
+
+.az-dropzone-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.az-dropzone:hover .az-dropzone-icon,
+.az-dropzone.drag-over .az-dropzone-icon {
+  background: #FDEEE6;
+}
+
+.az-dropzone-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.az-dropzone-sub {
+  font-size: 0.78rem;
+  color: #aaa;
+  font-weight: 400;
+}
+
+.az-dropzone-formats {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.az-format-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  background: #efefef;
+  color: #777;
+  border: 1px solid #e5e5e5;
+}
+
+.az-file-input { display: none; }
+
+/* ── File Selected Card ─────────────────────────────────────────────────────── */
+.az-file-selected {
+  border: 1px solid #e5b1f5;
+  border-radius: 10px;
+  background: #eee2f1;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-height: 190px;
+  justify-content: center;
+}
+
+.az-file-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.az-file-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: #53056b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.az-file-details { flex: 1; min-width: 0; }
+
+.az-file-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #1a1a1a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.az-file-size {
+  font-size: 0.75rem;
+  color: #686767;
+  font-weight: 400;
+  margin-top: 0.15rem;
+}
+
+.az-file-remove {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  color: #888;
+  cursor: pointer;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.15s;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.az-file-remove:hover { border-color: #bd74d3; color: #53056b; background: #fceffd; }
+
+.az-file-status {
+  font-size: 0.78rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.az-file-status.extracted { color: #1a6b3c; }
+.az-file-status.extracting { color: #aaa; }
+
+/* ── Error ──────────────────────────────────────────────────────────────────── */
+.az-error {
+  background: #fdf0ef;
+  border: 1px solid #f5c6c2;
+  color: #53056b;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ── Loading & Spinner ──────────────────────────────────────────────────────── */
+.az-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  padding: 2.5rem;
+  color: #aaa;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.az-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e0e0e0;
+  border-top-color: #C8622A;
+  border-radius: 50%;
+  animation: az-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+.az-spinner.sm {
+  width: 14px;
+  height: 14px;
+}
+
+@keyframes az-spin { to { transform: rotate(360deg); } }
+
+/* ── Empty State ────────────────────────────────────────────────────────────── */
+.az-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: #ddd;
+  font-size: 0.875rem;
+  font-weight: 500;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+/* ── Score Circle ───────────────────────────────────────────────────────────── */
+.az-score-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.az-score-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  border: 2px solid;
+}
+
+.az-score-circle.great { color: #1a6b3c; border-color: #1a6b3c; background: #edf7f2; }
+.az-score-circle.good  { color: #C8622A; border-color: #C8622A; background: #FFF8F5; }
+.az-score-circle.fair  { color: #9a6b00; border-color: #e0a000; background: #fffbee; }
+.az-score-circle.weak  { color: #c0392b; border-color: #c0392b; background: #fdf0ef; }
+
+.az-score-meta h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.3rem;
+}
+
+.az-score-meta p {
+  font-size: 0.84rem;
+  color: #666;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+/* ── Section Breakdown ──────────────────────────────────────────────────────── */
+.az-section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.75rem;
+}
+
+.az-section-pill {
+  background: #fafafa;
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.az-section-pill-label {
+  font-size: 0.68rem;
+  color: #aaa;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.az-section-pill-score {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.az-section-pill-score.great { color: #1a6b3c; }
+.az-section-pill-score.good  { color: #C8622A; }
+.az-section-pill-score.fair  { color: #9a6b00; }
+.az-section-pill-score.weak  { color: #c0392b; }
+
+.az-pill-bar {
+  height: 4px;
+  border-radius: 2px;
+  background: #eee;
+  overflow: hidden;
+}
+
+.az-pill-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.9s ease;
+}
+
+/* ── Feedback List ──────────────────────────────────────────────────────────── */
+.az-feedback-list { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.az-feedback-item {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  font-size: 0.86rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #333;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+}
+
+.az-feedback-icon {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Keywords ───────────────────────────────────────────────────────────────── */
+.az-keywords-wrap { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+
+.az-kw-tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.az-kw-tag.present { background: #edf7f2; color: #1a6b3c; border: 1px solid #c0e8d0; }
+.az-kw-tag.missing { background: #fdf0ef; color: #c0392b; border: 1px solid #f5c6c2; }
+
+.az-kw-section-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.45rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* ── JD Match Bar ───────────────────────────────────────────────────────────── */
+.az-match-bar-wrap {
+  background: #f0f0f0;
+  border-radius: 6px;
+  height: 8px;
+  overflow: hidden;
+  margin: 0.85rem 0 0.6rem;
+}
+
+.az-match-bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  background: #C8622A;
+  transition: width 1s ease;
+}
+
+.az-match-pct {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 0.3rem;
+}
