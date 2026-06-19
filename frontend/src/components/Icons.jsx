@@ -28,7 +28,7 @@ export default function Icon({ name, size = 16, color = "currentColor", classNam
           <polyline points="13 2 13 9 20 9" />
         </svg>
       );
-
+      
     case "file-pdf":
       return (
         <svg {...props}>
