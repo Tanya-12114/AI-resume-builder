@@ -21,7 +21,6 @@ export default function Icon({ name, size = 16, color = "currentColor", classNam
           <line x1="12" y1="3" x2="12" y2="15" />
         </svg>
       );
-
     case "file":
       return (
         <svg {...props}>
