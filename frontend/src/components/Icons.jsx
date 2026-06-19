@@ -3,7 +3,6 @@
 
 export default function Icon({ name, size = 16, color = "currentColor", className = "", style = {} }) {
   const props = { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: color, strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round", className, style };
-
   switch (name) {
     case "paste":
       return (
