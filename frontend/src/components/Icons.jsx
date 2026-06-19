@@ -13,7 +13,6 @@ export default function Icon({ name, size = 16, color = "currentColor", classNam
           <line x1="9" y1="14" x2="15" y2="14" />
         </svg>
       );
-
     case "upload":
       return (
         <svg {...props}>
